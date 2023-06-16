@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculator</title>
+  <style>
+    /* CSS styles for calculator layout */
+    .container {
+      width: 320px;
+      margin: 50px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      background-color: #f4f4f4;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    #result {
+      height: 70px;
+      width: 300px;
+      font-size: 36px;
+      text-align: right;
+      margin-bottom: 10px;
+      padding: 0 10px;
+      border-radius: 5px;
+      border: none;
+      background-color: #f9f9f9;
+    }
+
+    .row {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .button {
+      width: 75px;
+      height: 75px;
+      font-size: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 5px;
+      border-radius: 50%;
+      border: none;
+      background-color: #e0e0e0;
+      cursor: pointer;
+    }
+
+    .button.orange {
+      background-color: #ff9c00;
+      color: #fff;
+    }
+
+    .button.gray {
+      background-color: #d4d4d4;
+    }
+
+    
+  </style>
+</head>
+<body>
+  <div class="container" style="background-color: black;">
+    <input type="text" id="result" readonly>
+    <div class="row">
+      <div class="button gray" onclick="appendToResult('7')">7</div>
+      <div class="button gray" onclick="appendToResult('8')">8</div>
+      <div class="button gray" onclick="appendToResult('9')">9</div>
+      <div class="button orange" onclick="appendToResult('/')">÷</div>
+    </div>
+    <div class="row">
+      <div class="button gray" onclick="appendToResult('4')">4</div>
+      <div class="button gray" onclick="appendToResult('5')">5</div>
+      <div class="button gray" onclick="appendToResult('6')">6</div>
+      <div class="button orange" onclick="appendToResult('*')">×</div>
+    </div>
+    <div class="row">
+      <div class="button gray" onclick="appendToResult('1')">1</div>
+      <div class="button gray" onclick="appendToResult('2')">2</div>
+      <div class="button gray" onclick="appendToResult('3')">3</div>
+      <div class="button orange" onclick="appendToResult('-')">-</div>
+    </div>
+    <div class="row">
+      <div class="button tall gray" onclick="appendToResult('0')">0</div>
+      <div class="button gray" onclick="appendToResult('.')">.</div>
+      <div class="button orange" onclick="calculateResult()">=</div>
+      <div class="button orange" onclick="appendToResult('+')">+</div>
+    </div>
+    <div class="row">
+      <div class="button gray" onclick="clearResult()">C</div>
+    </div>
+  </div>
+
+  <script>
+    // JavaScript functions for calculator operations
+    function appendToResult(value) {
+      document.getElementById('result').value += value;
+    }
+
+    function calculateResult() {
+      const result = document.getElementById('result').value;
+      if (result) {
+        try {
+          const finalResult = eval(result);
+          document.getElementById('result').value = finalResult;
+        } catch (error) {
+          document.getElementById('result').value = 'Invalid Expression';
+        }
+      }
+    }
+
+    function clearResult() {
+      document.getElementById('result').value = '';
+    }
+  </script>
+</body>
+</html>
