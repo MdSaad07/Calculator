@@ -30,7 +30,7 @@ A simple and stylish calculator built using HTML, CSS, and JavaScript. 🖩✨
 ## 🏗️ Setup & Installation
 1. Clone this repository:
    ```sh
-   git clone https://github.com/yourusername/calculator-webapp.git
+   git clone https://github.com/MdsSaad07/calculator-webapp.git
    ```
 2. Open `index.html` in a browser.
 3. Enjoy calculating! 🎉
